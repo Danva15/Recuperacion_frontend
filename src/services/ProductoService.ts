@@ -28,7 +28,7 @@ const ProductoService = {
 
   async obtenerProductoPorId(id: number) {
     try {
-      const response = await fetch(`<span class="math-inline">\{API\_URL\}/</span>{id}`);
+      const response = await fetch(`${API_URL}/${id}`);
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || `Error al obtener producto con ID ${id}.`);
@@ -62,7 +62,7 @@ const ProductoService = {
 
   async actualizarProducto(id: number, producto: ActualizarProductoPayload) {
     try {
-      const response = await fetch(`<span class="math-inline">\{API\_URL\}/</span>{id}`, {
+      const response = await fetch(`${API_URL}/${id}`, {
         method: 'PUT', // O PATCH, dependiendo de cómo quieras tus actualizaciones
         headers: {
           'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const ProductoService = {
 
   async eliminarProducto(id: number) {
     try {
-      const response = await fetch(`<span class="math-inline">\{API\_URL\}/</span>{id}`, {
+      const response = await fetch(`${API_URL}/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {

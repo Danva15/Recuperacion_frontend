@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="pa-4">
+    <v-card class="pa-4, elevation-5">
       <v-card-title class="text-h5 d-flex justify-space-between align-center">
         Detalle del Producto
         <v-btn color="secondary" @click="router.back()">
@@ -31,7 +31,7 @@
             <v-col cols="12" md="6">
               <p class="text-h6 mb-2">Nombre: <strong>{{ producto.nombre }}</strong></p>
               <p class="mb-2">Descripción: {{ producto.descripcion || 'N/A' }}</p>
-              <p class="mb-2">Precio: <strong>{{ producto.precio?.toFixed(2) }} $</strong></p>
+              <p><strong>Precio:</strong> {{ typeof producto.precio === 'string' || typeof producto.precio === 'number' ? parseFloat(producto.precio).toFixed(2) : 'N/A' }} $</p>
               <p class="mb-2">
                 Stock Actual:
                 <strong :class="{ 'text-red-darken-2': producto.cantidadEnStock <= producto.cantidadMinimaStock }">
@@ -52,7 +52,7 @@
               <p class="text-caption">Última Actualización: {{ formatearFecha(producto.updatedAt) }}</p>
             </v-col>
             <v-col cols="12" md="6">
-              <v-card outlined class="pa-3 mb-4">
+              <v-card outlined class="pa-3 mb-4 elevation-4">
                 <v-card-title class="text-subtitle-1">Añadir Movimiento de Stock</v-card-title>
                 <v-card-text>
                   <v-form @submit.prevent="guardarMovimientoStock" ref="formMovimientoRef">
@@ -151,6 +151,17 @@ import { useRoute, useRouter } from 'vue-router';
 import ProductoService from '@/services/ProductoService';
 import MovimientoStockService from '@/services/MovimientoStockService';
 import { DateTime } from 'luxon'; // Para formatear fechas
+
+interface Producto {
+  id: number;
+  nombre: string;
+  descripcion?: string;
+  precio: number | string; // Define precio como number | string aquí
+  cantidadEnStock: number;
+  cantidadMinimaStock: number;
+  createdAt: string;
+  updatedAt: string;
+}
 
 const route = useRoute();
 const router = useRouter();

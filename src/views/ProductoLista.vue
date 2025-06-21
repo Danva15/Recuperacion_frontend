@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-card class="pa-4">
+  <v-container class="mt-8 elevation-6">
+    <v-card class="pa-4 ,elevation-4">
       <v-card-title class="text-h5 d-flex justify-space-between align-center">
         Lista de Productos
         <v-btn color="primary" @click="router.push('/productos/nuevo')">
@@ -29,7 +29,7 @@
       </v-alert>
 
       <v-data-table
-        :header="encabezados"
+        :headers="encabezados"
         :items="productosFiltrados"
         :loading="cargando"
         item-value="id"
@@ -231,5 +231,5 @@ onMounted(cargarProductos);
 </script>
 
 <style scoped>
-/* Puedes añadir estilos específicos aquí si es necesario */
+
 </style>

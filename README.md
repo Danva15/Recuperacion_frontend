@@ -1,3 +1,36 @@
+# 🖥️ Inventario Simple de Productos - Frontend
+
+**Desarrollado por:** Danna Valentina Gómez González  
+**Ficha SENA:** 2863722
+
+## 📋 Descripción
+
+Este frontend está desarrollado en **Vue.js 3** con **Vuetify** para la interfaz de usuario. Se conecta al backend (AdonisJS) para realizar operaciones **CRUD** de productos, mostrar alertas de bajo stock y visualizar el historial de movimientos de inventario.
+
+## 🛠️ Tecnologías utilizadas
+
+- **Vue 3**
+- **Vuetify**
+- **fecth**
+
+## 🚀 Instalación y uso
+
+Sigue estos pasos para ejecutar el frontend localmente:
+
+### 1. Clonar el repositorio
+
+git clone https://github.com/Danva15/Recuperacion_frontend.git
+cd Recuperacion_frontend
+
+### 2. instalar dependencias
+ 
+ npm install
+
+### 3. iniciar servidor de desarrollo 
+
+npm run dev
+
+
 # RECUPERACION_FRONTEND
 
 This template should help get you started developing with Vue 3 in Vite.
